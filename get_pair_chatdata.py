@@ -16,3 +16,7 @@ def get_pair_chatdata():
 
     #chatデータが1次元配列になっているものを返す
     return pair_chatdata
+
+#データセットのcsvファイルを出力
+def make_dataset_pair_chatdata():
+    pass
