@@ -1,3 +1,5 @@
+#! python coding:utf-8
+
 from get_from_oneJsonFile import get_from_oneJsonFile
 import glob
 import csv
@@ -22,7 +24,7 @@ def get_pair_chatdata():
     return pair_chatdata
 
 #データセットのcsvファイルを出力
-def make_dataset_pair_chatdata(format):
+def save_dataset_pair_chatdata(format):
     #ファイルが存在する場合は再作成を行うかどうかの確認を行う
     fileName = './outputData/pair_chatdata.'+format
     if os.path.isfile(fileName):
@@ -56,5 +58,10 @@ if __name__ == '__main__':
     if len(sys.argv) != 2:
         print('保存形式(format)を指定してください')
 
+    #outputDataフォルダがまだ存在していない場合はフォルダを作成
+    if not os.path.isdir('./outputData'):
+        os.mkdir('./outputData')
+
+    #形式を指定して保存
     format = sys.argv[1]
-    make_dataset_pair_chatdata(format=format)
+    save_dataset_pair_chatdata(format=format)
