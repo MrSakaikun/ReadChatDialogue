@@ -51,6 +51,6 @@ cd ReadChatDialogue
 Yuya Sakai [MrSakaikun](https://github.com/MrSakaikun)
 
 E-Mail:
-mr.sakaikun[at]gmail.com
+yuyasakai1002[at]gmail.com
 
 ↑[at]を@に変えてください
