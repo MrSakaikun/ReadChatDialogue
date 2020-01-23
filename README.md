@@ -44,8 +44,36 @@ cd ReadChatDialogue
   ```
   * outputDataフォルダが作成され，指定した形式のファイルが作成されます
 
-### 注意
+
+
+## 保存形式について
+#### csvの場合
+
+csv形式で保存した場合は，
+
+ユーザ発話，システム発話，各アノテーションの割合（O,T,X,ungrammatical-sentence の順に並ぶ）
+
+という1発話1返答という形式が1行ずつ保存されている．
+
+#### binaryfileの場合
+
+binaryfile形式で保存した場合は，
+
+```python
+dialogue = {"user"        : userUtterance,
+            "system"      : systemUtterance,
+            "annotation"  :{"O":rate_O,
+                            "T":rate_T,
+                            "X":rate_X,
+                            "G":rate_G}}
+```
+
+という1発話1返答のデータが辞書型として格納されている．このdialogue形式のデータがいくつものlist型の配列として保存されている．
+
+
+## 注意
 コーパス利用時のライセンス等はコーパス取得元のライセンスに従ってください
+
 
 ## 作成者
 Yuya Sakai [MrSakaikun](https://github.com/MrSakaikun)
