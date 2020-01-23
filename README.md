@@ -1,7 +1,7 @@
 # ReadChatDialogue
 
 雑談対話コーパス　<https://sites.google.com/site/dialoguebreakdowndetection/chat-dialogue-corpus>
-のjson形式のファイルから，chat内容を表示したり，csv形式，もしくはbinaryfile形式に変換して保存するプログラムです．
+のjson形式のファイルから，対話内容を表示したり，csv形式，もしくはbinaryfile形式に変換して保存するプログラムです．
 
 ## 動作環境
 
@@ -26,15 +26,15 @@ cd ReadChatDialogue
 
 2. [雑談対話コーパス](https://sites.google.com/site/dialoguebreakdowndetection/chat-dialogue-corpus)をダウンロードし，解凍する
 
-**注：コーパス利用時のライセンス等はリンク先のライセンスに従ってください**
+**注：コーパス利用時のライセンス等はコーパス取得元のライセンスに従ってください**
 
 3. 解凍したフォルダ内の「json」フォルダを「ReadChatDialogue」フォルダに移動orコピーする
 
 4. 対話コーパスの対話内容を見たい場合
-  * show_oneJsonFile.py を以下の形式で実行
+  * show_oneJsonFile.py を以下の形式で実行（aaaaは一例）
 
   ```bash
-  python show_oneJsonFile.py JsonファイルのPath指定
+  python show_oneJsonFile.py json/init100/aaaa.json
   ```
 
 5. 対話コーパスをcsv or binaryfile 形式で保存したい場合
@@ -44,7 +44,7 @@ cd ReadChatDialogue
   ```
   * outputDataフォルダが作成され，指定した形式のファイルが作成されます
 
-## 注意
+### 注意
 コーパス利用時のライセンス等はコーパス取得元のライセンスに従ってください
 
 ## 作成者
