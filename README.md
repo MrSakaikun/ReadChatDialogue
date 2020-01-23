@@ -26,7 +26,7 @@ cd ReadChatDialogue
 
 2. [雑談対話コーパス](https://sites.google.com/site/dialoguebreakdowndetection/chat-dialogue-corpus)をダウンロードし，解凍する
 
-*注：コーパス利用時のライセンス等はリンク先のライセンスに従ってください*
+**注：コーパス利用時のライセンス等はリンク先のライセンスに従ってください**
 
 3. 解凍したフォルダ内の「json」フォルダを「ReadChatDialogue」フォルダに移動orコピーする
 
