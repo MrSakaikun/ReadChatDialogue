@@ -87,3 +87,11 @@ E-Mail:
 yuyasakai1002[at]gmail.com
 
 ↑[at]を@に変えてください
+
+
+## LICENSE
+Please check [here](https://github.com/MrSakaikun/ReadChatDialogue/blob/master/LICENSE)
+
+MIT License
+
+Copyright (c) 2020 Yuya Sakai
