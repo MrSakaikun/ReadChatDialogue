@@ -1,6 +1,6 @@
 # ReadChatDialogue
 
-雑談対話コーパス　<https://sites.google.com/site/dialoguebreakdowndetection/chat-dialogue-corpus>
+[雑談対話コーパス](https://sites.google.com/site/dialoguebreakdowndetection/chat-dialogue-corpus)
 のjson形式のファイルから，対話内容を表示したり，csv形式，もしくはbinaryfile形式に変換して保存するプログラムです．
 
 ## 動作環境
@@ -32,15 +32,15 @@ cd ReadChatDialogue
 
 4. 対話コーパスの対話内容を見たい場合
   * show_oneJsonFile.py を以下の形式で実行（aaaaは一例）
-
   ```bash
   python show_oneJsonFile.py json/init100/aaaa.json
   ```
 
 5. 対話コーパスをcsv or binaryfile 形式で保存したい場合
-  * get_pair_chatdata.pyを以下の形式で実行(以下はcsv形式で保存する場合)
+  * get_pair_chatdata.pyを以下の形式で実行
   ```bash
   python get_pair_chatdata.py csv
+  python get_pair_chatdata.py binaryfile
   ```
   * outputDataフォルダが作成され，指定した形式のファイルが作成されます
 
@@ -72,10 +72,15 @@ dialogue = {"user"        : userUtterance,
 
 
 ## 注意
-コーパス利用時のライセンス等はコーパス取得元のライセンスに従ってください
+プログラムの作成者とコーパスの著作者は異なります．そのため，このレポジトリには雑談対話コーパスは含まれていません．コーパスは
+
+雑談対話コーパス:
+<https://sites.google.com/site/dialoguebreakdowndetection/chat-dialogue-corpus>
+
+からダウンロードしてください．また，コーパス利用時のライセンス等は[コーパス取得元のライセンス](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxkaWFsb2d1ZWJyZWFrZG93bmRldGVjdGlvbnxneDo3N2RkODA3Y2FjODgyNGI3)に従ってください.
 
 
-## 作成者
+## プログラム作成者
 Yuya Sakai [MrSakaikun](https://github.com/MrSakaikun)
 
 E-Mail:
