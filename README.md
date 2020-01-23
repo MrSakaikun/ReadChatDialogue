@@ -31,7 +31,6 @@ cd ReadChatDialogue
 3. 解凍したフォルダ内の「json」フォルダを「ReadChatDialogue」フォルダに移動orコピーする
 
 4. 対話コーパスの対話内容を見たい場合
-
   1. show_oneJsonFile.py を以下の形式で実行
 
   ```bash
@@ -39,19 +38,18 @@ cd ReadChatDialogue
   ```
 
 5. 対話コーパスをcsv or binaryfile 形式で保存したい場合
-
   1. get_pair_chatdata.pyを以下の形式で実行(以下はcsv形式で保存する場合)
   ```bash
   python get_pair_chatdata.py csv
   ```
-
   2. outputDataフォルダが作成され，指定した形式のファイルが作成されます
 
-##　注意
+## 注意
 コーパス利用時のライセンス等はコーパス取得元のライセンスに従ってください
 
 ## 作成者
 Yuya Sakai [MrSakaikun](https://github.com/MrSakaikun)
+
 E-Mail:
 mr.sakaikun[at]gmail.com
 
