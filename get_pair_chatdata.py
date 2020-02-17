@@ -1,13 +1,14 @@
 #! python coding:utf-8
 
-from get_from_oneJsonFile import get_from_oneJsonFile
+from get_from_oneJsonFile import get_user_to_system_dialogue_from_oneJsonFile
 import glob
 import csv
 import pickle
 import os
 import sys
 
-def get_pair_chatdata():
+#ユーザに対するシステムの発話とアノテーションのみ取得
+def get_user_to_system_chatdata():
     #読み込むjsonFileのリスト取得
     path_list = glob.glob('./json/*/*.json')
 
@@ -16,15 +17,15 @@ def get_pair_chatdata():
 
     #各pathに対してchatdataを取得
     for path in path_list:
-        read_data = get_from_oneJsonFile(filepath=path)
+        read_data = get_user_to_system_dialogue_from_oneJsonFile(filepath=path)
         for data in read_data:
             pair_chatdata.append(data)
 
     #chatデータが1次元配列になっているものを返す
     return pair_chatdata
 
-#データセットのcsvファイルを出力
-def save_dataset_pair_chatdata(format):
+#ユーザに対するシステムの発話のデータを保存
+def save_dataset_user_to_system_chatdata(format):
     #ファイルが存在する場合は再作成を行うかどうかの確認を行う
     fileName = './outputData/pair_chatdata.'+format
     if os.path.isfile(fileName):
@@ -33,7 +34,7 @@ def save_dataset_pair_chatdata(format):
             return
 
     #データを取得
-    pair_chatdata = get_pair_chatdata()
+    pair_chatdata = get_user_to_system_chatdata()
 
     #csv形式で保存
     if format=='csv':
@@ -54,6 +55,7 @@ def save_dataset_pair_chatdata(format):
             pickle.dump(pair_chatdata,f)
 
 
+#ユーザに対するシステムの発話のデータを保存
 if __name__ == '__main__':
     if len(sys.argv) != 2:
         print('保存形式(format)を指定してください')
@@ -64,4 +66,4 @@ if __name__ == '__main__':
 
     #形式を指定して保存
     format = sys.argv[1]
-    save_dataset_pair_chatdata(format=format)
+    save_dataset_user_to_system_chatdata(format=format)
