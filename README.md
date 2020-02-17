@@ -117,7 +117,7 @@ dialogue = {"user"        : userUtterance,
 * System→Userの発話の時
 ```python
 dialogue = {"system"	:systemUtterance,
-            "user"		:userUtterance}
+            "user"    :userUtterance}
 ```
 
 
