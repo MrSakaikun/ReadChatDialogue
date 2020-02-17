@@ -1,7 +1,33 @@
 # ReadChatDialogue
 
 [雑談対話コーパス](https://sites.google.com/site/dialoguebreakdowndetection/chat-dialogue-corpus)
-のjson形式のファイルから，対話内容を表示したり，csv形式，もしくはbinaryfile形式に変換して保存するプログラムです．
+のjson形式のファイルから，UserとSystemの発話内容を組みのデータとして変換し，発話内容を表示したり，csv形式，もしくはbinaryfile形式に変換して保存するプログラムです．
+
+以下は保存形式のイメージ
+```
+ユーザ発話1，システム発話1，ユーザ発話2，システム発話2・・・
+
+↓
+
+[[ユーザ発話1，システム発話1，（アノテーション）],
+ [システム発話1，ユーザ発話2],
+ [ユーザ発話2，システム発話2，（アノテーション）],
+...
+]
+
+```
+以下の形式で保存することも可能です．（使い方の5の末尾を参照してください）
+```
+ユーザ発話1，システム発話1，ユーザ発話2，システム発話2・・・
+
+↓
+
+[[ユーザ発話1，システム発話1，アノテーション1],
+ [ユーザ発話2，システム発話2，アノテーション2],
+ [ユーザ発話3，システム発話3，アノテーション3],
+...
+]
+```
 
 ## 動作環境
 
@@ -43,6 +69,26 @@ cd ReadChatDialogue
   python get_pair_chatdata.py binaryfile
   ```
   * outputDataフォルダが作成され，指定した形式のファイルが作成されます
+  * 通常ではall_pairが選択されています（User→SystemとSystem→Userの両方のデータが取得できます）．
+  * System→Userのデータはアノテーションは含まれていません
+  * User→Systemのみの組データが欲しい場合は，get_pair_chatdata.py の最後の行を，以下に書き換えてください．
+  ```python
+  if __name__ == '__main__':
+      if len(sys.argv) != 2:
+          print('保存形式(format)を指定してください')
+
+      #outputDataフォルダがまだ存在していない場合はフォルダを作成
+      if not os.path.isdir('./outputData'):
+          os.mkdir('./outputData')
+
+      #形式を指定して保存
+      format = sys.argv[1]
+
+      #User→SystemとSystem→Userの両方がセットとなったデータを取得する場合
+      save_dataset_all_pair_chatdata(format=format)
+      #User→Systemのデータのみを取得する場合
+      save_dataset_user_to_system_chatdata(format=format)
+  ```
 
 
 
@@ -59,6 +105,7 @@ csv形式で保存した場合は，
 
 binaryfile形式で保存した場合は，
 
+* User→Systemの発話の時
 ```python
 dialogue = {"user"        : userUtterance,
             "system"      : systemUtterance,
@@ -67,8 +114,15 @@ dialogue = {"user"        : userUtterance,
                             "X":rate_X,
                             "G":rate_G}}
 ```
+* System→Userの発話の時
+```python
+dialogue = {"system"	:systemUtterance,
+            "user"    :userUtterance}
+```
 
-という1発話1返答のデータが辞書型として格納されている．このdialogue形式のデータがいくつものlist型の配列として保存されている．
+
+
+という1発話1返答のデータが辞書型として格納されている．このdialogue形式のデータが交互にいくつものlist型の配列として保存されている．
 
 
 ## 注意
@@ -79,6 +133,7 @@ dialogue = {"user"        : userUtterance,
 
 からダウンロードしてください．また，コーパス利用時のライセンス等は[コーパス取得元のライセンス](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxkaWFsb2d1ZWJyZWFrZG93bmRldGVjdGlvbnxneDo3N2RkODA3Y2FjODgyNGI3)に従ってください.
 
+また，通常ではall_pair（User→Systemの発話とSystem→Userの発話のデータを両方取得する）となっています．ただしSystem→Userの発話データにはアノテーションは付いていません．アノテーションが付いているデータのみを取得したい場合は「使い方」の5の末尾に書かれてある内容に従ってください．
 
 ## プログラム作成者
 Yuya Sakai [MrSakaikun](https://github.com/MrSakaikun)
